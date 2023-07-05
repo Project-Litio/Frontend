@@ -36,10 +36,12 @@ EMAIL_USE_TLS = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 ALLOWED_HOSTS = []
 
-# Application definition
+
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+
+# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -55,7 +57,6 @@ INSTALLED_APPS = [
     'login',
     'inventory',
     'order',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 MIDDLEWARE = [
@@ -75,7 +76,7 @@ CORS_ALLOWED_ORIGINS = [
     'http://127.0.0.1',
     'http://0.0.0.0',
     'http://localhost:5173',
-    'https://frontend-lithium.onrender.com',
+    'https://lithium-frontend.onrender.com'
 ]
 
 AUTHENTICATION_BACKENDS = ['login.views.EmailBackend']
@@ -105,7 +106,7 @@ WSGI_APPLICATION = 'lithium.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-      'default': dj_database_url.config(
+   'default': dj_database_url.config(
         default='postgres://qgwhyihe:DoYpySCmyxElh7DwlqbCCBpcpLZH5Tyq@mahmud.db.elephantsql.com:5432/qgwhyihe',
         conn_max_age=600
    )
