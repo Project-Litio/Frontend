@@ -76,7 +76,7 @@ CORS_ALLOWED_ORIGINS = [
     'http://127.0.0.1',
     'http://0.0.0.0',
     'http://localhost:5173',
-    'https://lithium-frontend.onrender.com'
+    'https://frontend-lithium.onrender.com'
 ]
 
 AUTHENTICATION_BACKENDS = ['login.views.EmailBackend']
